@@ -1,20 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SCEEV.Models
 {
-    public class Cliente : Pessoa
+    public abstract class Cliente : Pessoa
     {
-        public int Id { get; private set; }
+        public IList<Venda> Compras { get; set; }
+        public IList<Orcamento> Orcamentos { get; set; }
 
-        private static int id = 1;
+        public Cliente() { }
 
-        Cliente(string nome, string cpf_cnpj, DateTime dataNascimento, IList<string> telefones, string email, Endereco endereco) 
-            : base(nome, cpf_cnpj, dataNascimento, telefones, email, endereco)
+        public Cliente(string nome, string email, DateTime dataNascimento, Endereco endereco)
+            : base(nome, email, dataNascimento, endereco)
         {
-            this.Id = id++;
+            this.Compras = new List<Venda>();
+            this.Orcamentos = new List<Orcamento>();
+        }
+
+        public void AdicionaOrcamentos(IList<Orcamento> orcamentos)
+        {
+            foreach (Orcamento orcamento in orcamentos)
+            {
+                Orcamentos.Add(orcamento);
+            }
+        }
+
+        public void RemoveOrcamentos(IList<Orcamento> orcamentos)
+        {
+            foreach (Orcamento orcamento in orcamentos)
+            {
+                Orcamentos.Remove(orcamento);
+            }
+        }
+
+        public void AdicionaCompras(IList<Venda> compras)
+        {
+            foreach (Venda compra in compras)
+            {
+                Compras.Add(compra);
+            }
+        }
+
+        public void RemoveCompras(IList<Venda> compras)
+        {
+            foreach (Venda compra in compras)
+            {
+                Compras.Remove(compra);
+            }
         }
     }
 }

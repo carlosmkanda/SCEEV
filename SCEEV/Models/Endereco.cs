@@ -1,21 +1,21 @@
 ﻿namespace SCEEV.Models
 {
-    public class Endereco
+    public class Endereco : EntityBase
     {
-        public int Id { get; private set; }
-        public string CEP { get; private set; }
-        public string Estado { get; private set; }
-        public string Municipio { get; private set; }
-        public string Bairro { get; private set; }
-        public string Logradouro { get; private set; }
-        public int Numero { get; private set; }
-        public string Complemento { get; private set; }
+        public string CEP { get; set; }
+        public string Estado { get; set; }
+        public string Municipio { get; set; }
+        public string Bairro { get; set; }
+        public string Logradouro { get; set; }
+        public int Numero { get; set; }
+        public string Complemento { get; set; }
+        public int PessoaId { get; set; }
+        public Pessoa Pessoa { get; set; }
 
-        private static int id = 1;
+        public Endereco() { }
 
         public Endereco(string cep, string estado, string municipio, string bairro, string logradouro, int numero)
         {
-            this.Id = id++;
             this.CEP = cep;
             this.Estado = estado;
             this.Municipio = municipio;
@@ -25,7 +25,6 @@
         }
         public Endereco(string cep, string estado, string municipio, string bairro, string logradouro, int numero, string complemento)
         {
-            this.Id = id++;
             this.CEP = cep;
             this.Estado = estado;
             this.Municipio = municipio;

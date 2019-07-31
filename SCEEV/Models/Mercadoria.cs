@@ -5,23 +5,23 @@ using System.Threading.Tasks;
 
 namespace SCEEV.Models
 {
-    public class Mercadoria
+    public class Mercadoria : EntityBase
     {
-        public int Id { get; private set; }
-        public string Nome { get; private set; }
-        public double Valor { get; private set; }
-        public int QuantidadeEstoque { get; private set; }
-        public string Descricao { get; private set; }
+        public string Nome { get; set; }
+        public double Valor { get; set; }
+        public int QuantidadeEstoque { get; set; }
+        public string Descricao { get; set; }
+        public IList<MercadoriaOrcamento> MercadoriaOrcamentos { get; set; }
 
-        private static int id = 1;
+        public Mercadoria () { }
 
         public Mercadoria(string nome, double valor, int quantidadeEstoque, string descricao)
         {
-            this.Id = id++;
             this.Nome = nome;
             this.Valor = valor;
             this.QuantidadeEstoque = quantidadeEstoque;
             this.Descricao = descricao;
+            this.MercadoriaOrcamentos = new List<MercadoriaOrcamento>();
         }
     }
 }

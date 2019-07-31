@@ -5,49 +5,26 @@ using System.Threading.Tasks;
 
 namespace SCEEV.Models
 {
-    public class Orcamento
+    public class Orcamento : EntityBase
     {
-        public int Id { get; private set; }
-        public Usuario Responsavel { get; private set; }
-        public Cliente Cliente { get; private set; }
-        public IList<Mercadoria> Mercadorias { get; private set; }
-        public double Valor { get; private set; }
+        public double Valor { get; set; }
+        public int ResponsavelId { get; set; }
+        public Usuario Responsavel { get; set; }
+        public int ClienteId { get; set; }
+        public Cliente Cliente { get; set; }
+        public Venda Venda { get; set; }
+        public IList<MercadoriaOrcamento> MercadoriasOrcamentos { get; set; }
 
-        private static int id = 1;
 
-        public Orcamento(Usuario responsavel, Cliente cliente, double valor)
+        public Orcamento() { }
+
+        public Orcamento(double valor, Cliente cliente, Usuario responsavel, Venda venda)
         {
-            this.Id = id++;
-            this.Responsavel = responsavel;
-            this.Cliente = cliente;
             this.Valor = valor;
-            this.Mercadorias = new List<Mercadoria>();
-        }
-
-        public Orcamento(Usuario responsavel, Cliente cliente, double valor, IList<Mercadoria> mercadorias)
-        {
-            this.Id = id++;
-            this.Responsavel = responsavel;
             this.Cliente = cliente;
-            this.Valor = valor;
-            this.Mercadorias = new List<Mercadoria>();
-            AdicionaMercadorias(mercadorias);
-        }
-
-        public void AdicionaMercadorias(IList<Mercadoria> mercadorias)
-        {
-            foreach (Mercadoria mercadoria in mercadorias)
-            {
-                Mercadorias.Add(mercadoria);
-            }
-        }
-
-        public void RemoveMercadorias(IList<Mercadoria> mercadorias)
-        {
-            foreach (Mercadoria mercadoria in mercadorias)
-            {
-                Mercadorias.Remove(mercadoria);
-            }
+            this.Responsavel = responsavel;
+            this.Venda = venda;
+            this.MercadoriasOrcamentos = new List<MercadoriaOrcamento>();
         }
     }
 }

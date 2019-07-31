@@ -1,47 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SCEEV.Models
 {
-    public abstract class Pessoa
+    public abstract class Pessoa : EntityBase
     {
-        public string Nome { get; private set; }
-        public string Cpf_Cnpj { get; private set; }
-        public DateTime DataNascimento { get; private set; }
-        public IList<string> Telefones { get; private set; }
-        public string Email { get; private set; }
-        public Endereco Endereco { get; private set; }
-        public IList<Venda> Historico { get; private set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public Endereco Endereco { get; set; }
+        public IList<Telefone> Telefones { get; set; }
 
-        public Pessoa(string nome, string cpf_cnpj, DateTime dataNascimento, IList<string> telefones, string email, Endereco endereco)
+        public Pessoa() { }
+
+        protected Pessoa(string nome, string email, DateTime dataNascimento, Endereco endereco)
         {
-            this.Nome = nome;
-            this.Cpf_Cnpj = cpf_cnpj;
-            this.DataNascimento = dataNascimento;
-            this.Email = email;
-            this.Endereco = endereco;
-            this.Historico = new List<Venda>();
-            this.Telefones = new List<string>();
-            foreach (string telefone in telefones)
-            {
-                this.Telefones.Add(telefone);
-            }
+            Nome = nome;
+            Email = email;
+            DataNascimento = dataNascimento;
+            Endereco = endereco;
+            Telefones = new List<Telefone>();
         }
-        public void AdicionaCompras(IList<Venda> vendas)
+
+        public void AdicionaTelefones(IList<Telefone> telefones)
         {
-            foreach (Venda venda in vendas)
+            foreach (Telefone telefone in telefones)
             {
-                Historico.Add(venda);
+                Telefones.Add(telefone);
             }
         }
 
-        public void RemoveCompras(IList<Venda> vendas)
+        public void RemoveTelefones(IList<Telefone> telefones)
         {
-            foreach (Venda venda in vendas)
+            foreach (Telefone telefone in telefones)
             {
-                Historico.Remove(venda);
+                Telefones.Remove(telefone);
             }
         }
     }
