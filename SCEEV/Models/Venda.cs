@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SCEEV.Models
 {
     public class Venda : EntityBase
     {
+        [Required]
         public DateTime DataRealizacao { get; set; }
-        public int OrcamentoId { get; set; }
         public Orcamento Orcamento { get; set; }
         public Pagamento Pagamento { get; set; }
-        public int ResponsavelId { get; set; }
         public Usuario Responsavel { get; set; }
-        public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
 
         public Venda() { }

@@ -10,8 +10,8 @@ namespace SCEEV.Models
 
         public Cliente() { }
 
-        public Cliente(string nome, string email, DateTime dataNascimento, Endereco endereco)
-            : base(nome, email, dataNascimento, endereco)
+        public Cliente(string nome, string email, DateTime dataNascimento)
+            : base(nome, email, dataNascimento)
         {
             this.Compras = new List<Venda>();
             this.Orcamentos = new List<Orcamento>();

@@ -5,6 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configuration\PessoaConfiguration.cs" />
+    <Compile Remove="Migrations\20190802172125_Inicial.cs" />
+    <Compile Remove="Migrations\20190802172125_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20190802174429_Inicial.cs" />
+    <Compile Remove="Migrations\20190802174429_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20190802185644_Inicial.cs" />
+    <Compile Remove="Migrations\20190802185644_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20190802192410_Inicial.cs" />
+    <Compile Remove="Migrations\20190802192410_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20190802193542_Inicial.cs" />
+    <Compile Remove="Migrations\20190802193542_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20190802194255_Inicial.cs" />
+    <Compile Remove="Migrations\20190802194255_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20190802195720_Inicial.cs" />
+    <Compile Remove="Migrations\20190802195720_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20190802200117_Inicial.cs" />
+    <Compile Remove="Migrations\20190802200117_Inicial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />

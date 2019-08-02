@@ -1,11 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SCEEV.Models
 {
     public class Pagamento : EntityBase
     {
+        [Required]
         public StatusDePagamento StatusDePagamento { get; set; }
         public FormaDePagamento FormaDePagamento { get; set; }
+        [Required]
         public int Parcelas {
             get { return Parcelas; }
             set
@@ -14,6 +17,7 @@ namespace SCEEV.Models
             }
         }
         public int VendaId { get; set; }
+        [Required]
         public Venda Venda { get; set; }
 
         public Pagamento() { }
